@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ExpenseCategoryCell: View {
     var color: Color
-    var subcategory: String
-    var amountSpent: Double
+    var subcategoryName: String
+    var amount: Double
     
     var body: some View {
         ZStack {
@@ -19,7 +19,7 @@ struct ExpenseCategoryCell: View {
                 
             
             VStack {
-                Text(subcategory)
+                Text(subcategoryName)
                     .font(.title2)
                     .fontWeight(.regular)
                     .multilineTextAlignment(.center)
@@ -28,7 +28,7 @@ struct ExpenseCategoryCell: View {
                 
                 Spacer()
                 
-                Text("$\(amountSpent, specifier: "%.2f")")
+                Text("$\(amount, specifier: "%.2f")")
                     .font(.headline)
                     .padding(.bottom, 15)
             }
@@ -40,6 +40,6 @@ struct ExpenseCategoryCell: View {
 
 #Preview {
     ExpenseCategoryCell(color: .brown,
-                        subcategory: "Take-Out, lots of food",
-                        amountSpent: 99.12)
+                        subcategoryName: "Take-Out, lots of food",
+                        amount: 99.12)
 }

@@ -15,8 +15,8 @@ struct SubcategoryGridView: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(MockData().categories) { category in
-                        ForEach(category.subcategories, id: \.self) { subcategory in
-                            ExpenseCategoryCell(color: category.color, subcategory: subcategory, amountSpent: 0.0)
+                        ForEach(category.subcategories) { subcategory in
+                            ExpenseCategoryCell(color: category.color, subcategoryName: subcategory.name, amount: 0.0)
                         }
                     }
                 }
