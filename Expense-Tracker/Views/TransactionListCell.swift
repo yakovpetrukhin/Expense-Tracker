@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct TransactionListCell: View {
+    
+    let transaction: TransactionItem
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(transaction.label)
+                .fontWeight(.bold)
+                .font(.title2)
+                .padding()
+            Spacer()
+            Text("$\(transaction.amount, specifier: "%.2f")")
+                .font(.headline)
+                .padding()
+        }
+        .frame(width: .infinity, height: 60)
+        .background(.mint)
+        .clipShape(RoundedRectangle(cornerRadius: 25))
     }
 }
 
 #Preview {
-    TransactionListCell()
+    TransactionListCell(transaction: MockData().transactions[0])
 }

@@ -15,6 +15,7 @@ struct SubcategoryDetailView: View {
     @State var amount: Double? = nil
       
     var body: some View {
+        Spacer()
         VStack {
             
             
@@ -44,9 +45,20 @@ struct SubcategoryDetailView: View {
             }
             .padding(.vertical, 40)
             .buttonStyle(.borderedProminent)
-            .tint(.red)
+            .tint(.green)
             
         }
+        .offset(CGSize(width: 0.0, height: 60.0))
+        Spacer()
+        List {
+            ForEach(MockData().transactions/*subcategory.transactions*/) { transactionItem in
+                TransactionListCell(transaction: transactionItem)
+            }
+        }
+        .listStyle(.plain)
+        .listRowSeparator(.hidden)
+        .frame(height: 260)
+        
     }
 }
 

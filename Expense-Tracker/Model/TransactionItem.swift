@@ -9,9 +9,14 @@ import SwiftUI
 
 struct TransactionItem: Identifiable {
     let id = UUID()
-    var description: String
+    
+    var label: String
     var amount: Double
-    var transactionType: TransactionType
+    var date: Date?
+    
+    var categoryLabel: String? // FIX THIS, THEY ARE OPTIONAL JUST FOR TESTING THE LIST VIEW
+    var subcategoryLabel: String?
+    var transactionType: TransactionType = .expense
 }
 
 enum TransactionType {

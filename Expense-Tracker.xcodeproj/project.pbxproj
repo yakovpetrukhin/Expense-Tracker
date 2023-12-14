@@ -17,6 +17,7 @@
 		66F70F012B2970A600484011 /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F70F002B2970A600484011 /* TransactionItem.swift */; };
 		66F70F062B297EBF00484011 /* SubcategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F70F052B297EBF00484011 /* SubcategoryDetailView.swift */; };
 		66F70F082B2A248700484011 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F70F072B2A248700484011 /* test.swift */; };
+		66F70F0A2B2AC42D00484011 /* TransactionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F70F092B2AC42D00484011 /* TransactionListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		66F70F002B2970A600484011 /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		66F70F052B297EBF00484011 /* SubcategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryDetailView.swift; sourceTree = "<group>"; };
 		66F70F072B2A248700484011 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		66F70F092B2AC42D00484011 /* TransactionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				66EC8DF72B274AD000DE835D /* ExpenseCategoryCell.swift */,
+				66F70F092B2AC42D00484011 /* TransactionListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				66B2B08E2B276686001E9813 /* SubcategoryGridView.swift in Sources */,
 				66EC8DEA2B26BE7400DE835D /* Expense_TrackerApp.swift in Sources */,
+				66F70F0A2B2AC42D00484011 /* TransactionListCell.swift in Sources */,
 				66EC8DF82B274AD000DE835D /* ExpenseCategoryCell.swift in Sources */,
 				66F70F012B2970A600484011 /* TransactionItem.swift in Sources */,
 				66F70F062B297EBF00484011 /* SubcategoryDetailView.swift in Sources */,

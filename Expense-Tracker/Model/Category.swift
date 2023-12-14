@@ -53,7 +53,7 @@ let monthlyExpeseSubcat     = [Subcategory(name: "Food"),
 
 struct MockData {
     
-    let categories = [Category(name: "Income",
+    var categories = [Category(name: "Income",
                                subcategories: incomeSubcat,
                                color: Color.green),
                       
@@ -72,4 +72,12 @@ struct MockData {
                       Category(name: "Monthly Expenses",
                                subcategories: monthlyExpeseSubcat,
                                color: Color.pink)]
+    
+    let transactions = [TransactionItem(label: "Walmart",       amount: 99.99),
+                        TransactionItem(label: "Winners",       amount: 99.99),
+                        TransactionItem(label: "Costco Gas",    amount: 99.99),
+                        TransactionItem(label: "Chipotle",      amount: 99.99),
+                        TransactionItem(label: "Canadian Tire", amount: 99.99)]
+    
+    
 }
