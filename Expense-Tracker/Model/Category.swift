@@ -77,6 +77,11 @@ struct MockData {
                         TransactionItem(label: "Winners",       amount: 99.99),
                         TransactionItem(label: "Costco Gas",    amount: 99.99),
                         TransactionItem(label: "Chipotle",      amount: 99.99),
+                        TransactionItem(label: "Canadian Tire", amount: 99.99),
+                        TransactionItem(label: "Walmart",       amount: 99.99),
+                        TransactionItem(label: "Winners",       amount: 99.99),
+                        TransactionItem(label: "Costco Gas",    amount: 99.99),
+                        TransactionItem(label: "Chipotle",      amount: 99.99),
                         TransactionItem(label: "Canadian Tire", amount: 99.99)]
     
     
