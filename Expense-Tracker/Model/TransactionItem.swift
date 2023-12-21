@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TransactionItem: Identifiable {
+class TransactionItem: Identifiable {
     let id = UUID()
     
     var label: String
@@ -17,6 +17,15 @@ struct TransactionItem: Identifiable {
     var categoryLabel: String? // FIX THIS, THEY ARE OPTIONAL JUST FOR TESTING THE LIST VIEW
     var subcategoryLabel: String?
     var transactionType: TransactionType = .expense
+    
+    init(label: String, amount: Double, date: Date? = nil, categoryLabel: String? = nil, subcategoryLabel: String? = nil, transactionType: TransactionType = .expense) {
+        self.label = label
+        self.amount = amount
+        self.date = date
+        self.categoryLabel = categoryLabel
+        self.subcategoryLabel = subcategoryLabel
+        self.transactionType = transactionType
+    }
 }
 
 enum TransactionType {

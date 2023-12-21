@@ -7,12 +7,19 @@
 
 import SwiftUI
 
-struct Subcategory: Identifiable {
+class Subcategory: Identifiable {
     let id = UUID()
     
     var name: String
-    var transactions: [TransactionItem] = []
+    var transactions: [TransactionItem]
     
-    var amount: Double = 0.0
+    var amount: Double
     var color: Color?
+    
+    init(name: String, transactions: [TransactionItem] = [], amount: Double = 0.0, color: Color? = nil) {
+        self.name = name
+        self.transactions = transactions
+        self.amount = amount
+        self.color = color
+    }
 }

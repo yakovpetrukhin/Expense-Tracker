@@ -7,14 +7,19 @@
 
 import SwiftUI
 
-struct Category: Identifiable {
+class Category: Identifiable {
     let id = UUID()
     
     var name: String
     var subcategories: [Subcategory]
     
     var color: Color
-    var totalAmount: Double = 0.0
+    
+    init(name: String, subcategories: [Subcategory], color: Color) {
+        self.name = name
+        self.subcategories = subcategories
+        self.color = color
+    }
 }
 
 let incomeSubcat            = [Subcategory(name: "Work"),
@@ -39,7 +44,7 @@ let subscriptionSubcat      = [Subcategory(name: "iCloud"),
                                Subcategory(name: "Spotify"),
                                Subcategory(name: "Amazon")]
                                
-let monthlyExpeseSubcat     = [Subcategory(name: "Food"),
+let monthlyExpenseSubcat     = [Subcategory(name: "Food"),
                                Subcategory(name: "Take-out"),
                                Subcategory(name: "Substances"),
                                Subcategory(name: "Haircut"),
@@ -70,7 +75,7 @@ struct MockData {
                                color: Color.yellow),
                       
                       Category(name: "Monthly Expenses",
-                               subcategories: monthlyExpeseSubcat,
+                               subcategories: monthlyExpenseSubcat,
                                color: Color.pink)]
     
     let transactions = [TransactionItem(label: "Walmart",       amount: 99.99),

@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct SubcategoryGridView: View {
+    
     let columns  = Array(repeating: GridItem(.flexible(), spacing: 20, alignment: .center), count: 2)
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(MockData().categories) { category in

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SubcategoryDetailView: View {
     
-    @State var data: [Double] = []
     let subcategory: Subcategory
     
     @State var transactionLabel: String = ""
