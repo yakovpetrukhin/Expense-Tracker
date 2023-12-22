@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExpenseCategoryCell: View {
+struct SubcategoryGridCell: View {
     var color: Color
     var subcategoryName: String
     var amount: Double
@@ -39,7 +39,7 @@ struct ExpenseCategoryCell: View {
 }
 
 #Preview {
-    ExpenseCategoryCell(color: .brown,
+    SubcategoryGridCell(color: .brown,
                         subcategoryName: "Take-Out, lots of food",
                         amount: 99.12).frame(width: 150, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
 }
