@@ -7,28 +7,25 @@
 
 import SwiftUI
 
-class TransactionItem: Identifiable {
-    let id = UUID()
+class TransactionItem: Identifiable, Codable {
     
+    let id: UUID
     var label: String
     var amount: Double
-    var date: Date?
-    
-    var categoryLabel: String? // FIX THIS, THEY ARE OPTIONAL JUST FOR TESTING THE LIST VIEW
-    var subcategoryLabel: String?
+    var date: Date
     var transactionType: TransactionType = .expense
     
-    init(label: String, amount: Double, date: Date? = nil, categoryLabel: String? = nil, subcategoryLabel: String? = nil, transactionType: TransactionType = .expense) {
+    init(id: UUID = UUID(), label: String, amount: Double, date: Date = Date.now,
+         transactionType: TransactionType = .expense) {
+        
+        self.id = id
         self.label = label
         self.amount = amount
         self.date = date
-        self.categoryLabel = categoryLabel
-        self.subcategoryLabel = subcategoryLabel
         self.transactionType = transactionType
     }
 }
 
-enum TransactionType {
-    case expense
-    case income
+enum TransactionType: String, Codable {
+    case expense, income
 }

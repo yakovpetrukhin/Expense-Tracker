@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SubcategoryGridCell: View {
+    
     var color: Color
     var subcategoryName: String
     var amount: Double

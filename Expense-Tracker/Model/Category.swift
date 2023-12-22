@@ -8,86 +8,41 @@
 import SwiftUI
 
 class Category: Identifiable {
-    let id = UUID()
     
-    var name: String
-    var subcategories: [Subcategory]
+    let id: UUID
     
+    var label: String
     var color: Color
     
-    init(name: String, subcategories: [Subcategory], color: Color) {
-        self.name = name
-        self.subcategories = subcategories
-        self.color = color
+    var subcategories: [Subcategory] = []
+    
+    init(id: UUID = UUID(), categoryLabel: String, subcategoryLabels: [String], categoryColor: Color) {
+        self.id = id
+        self.label = categoryLabel
+        self.color = categoryColor
+        
+        for subcategoryLabel in subcategoryLabels {
+            self.subcategories.append(Subcategory(label: subcategoryLabel, color: self.color))
+        }
+        
+        
+    }
+    
+    func printDetails() {
+        print("ID: \(self.id),\nLabel: \(self.label),\nColor: \(self.color.description)")
     }
 }
 
-let incomeSubcat            = [Subcategory(name: "Work"),
-                               Subcategory(name: "Savings"),
-                               Subcategory(name: "Side Income")]
-
-let surpriseExpenseSubcat   = [Subcategory(name: "Supplies"),
-                               Subcategory(name: "Gifts"),
-                               Subcategory(name: "Travel"),
-                               Subcategory(name: "Medical"),
-                               Subcategory(name: "Car Maintenance")]
-
-let recurringExpenseSubcat  = [Subcategory(name: "Housing"),
-                               Subcategory(name: "Hydro"),
-                               Subcategory(name: "Tenant Insurance"),
-                               Subcategory(name: "Laundry"),
-                               Subcategory(name: "Internet"),
-                               Subcategory(name: "Cell Phone"),
-                               Subcategory(name: "Car Insurance")]
-                               
-let subscriptionSubcat      = [Subcategory(name: "iCloud"),
-                               Subcategory(name: "Spotify"),
-                               Subcategory(name: "Amazon")]
-                               
-let monthlyExpenseSubcat     = [Subcategory(name: "Food"),
-                               Subcategory(name: "Take-out"),
-                               Subcategory(name: "Substances"),
-                               Subcategory(name: "Haircut"),
-                               Subcategory(name: "Gas"),
-                               Subcategory(name: "Parking"),
-                               Subcategory(name: "Clothes"),
-                               Subcategory(name: "Entertainment"),
-                               Subcategory(name: "Gym"),
-                               Subcategory(name: "Bank Fees"),
-                               Subcategory(name: "Line of Credit")]
-
-struct MockData {
-    
-    var categories = [Category(name: "Income",
-                               subcategories: incomeSubcat,
-                               color: Color.green),
-                      
-                      Category(name: "Unusual Expenses",
-                               subcategories: surpriseExpenseSubcat,
-                               color: Color.red),
-                      
-                      Category(name: "Recurring Expenses",
-                               subcategories: surpriseExpenseSubcat,
-                               color: Color.blue),
-                      
-                      Category(name: "Subscriptions",
-                               subcategories: subscriptionSubcat,
-                               color: Color.yellow),
-                      
-                      Category(name: "Monthly Expenses",
-                               subcategories: monthlyExpenseSubcat,
-                               color: Color.pink)]
-    
-    let transactions = [TransactionItem(label: "Walmart",       amount: 99.99),
-                        TransactionItem(label: "Winners",       amount: 99.99),
-                        TransactionItem(label: "Costco Gas",    amount: 99.99),
-                        TransactionItem(label: "Chipotle",      amount: 99.99),
-                        TransactionItem(label: "Canadian Tire", amount: 99.99),
-                        TransactionItem(label: "Walmart",       amount: 99.99),
-                        TransactionItem(label: "Winners",       amount: 99.99),
-                        TransactionItem(label: "Costco Gas",    amount: 99.99),
-                        TransactionItem(label: "Chipotle",      amount: 99.99),
-                        TransactionItem(label: "Canadian Tire", amount: 99.99)]
-    
-    
-}
+//    let transactions = [TransactionItem(label: "Walmart",       amount: 99.99),
+//                        TransactionItem(label: "Winners",       amount: 99.99),
+//                        TransactionItem(label: "Costco Gas",    amount: 99.99),
+//                        TransactionItem(label: "Chipotle",      amount: 99.99),
+//                        TransactionItem(label: "Canadian Tire", amount: 99.99),
+//                        TransactionItem(label: "Walmart",       amount: 99.99),
+//                        TransactionItem(label: "Winners",       amount: 99.99),
+//                        TransactionItem(label: "Costco Gas",    amount: 99.99),
+//                        TransactionItem(label: "Chipotle",      amount: 99.99),
+//                        TransactionItem(label: "Canadian Tire", amount: 99.99)]
+//    
+//    
+//}

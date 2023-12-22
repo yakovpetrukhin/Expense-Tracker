@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct Expense_TrackerApp: App {
+    
+    var userData = UserData(categoryDict: DefaultData().categoryTree, colors: DefaultData().categoryColors)
+        
     var body: some Scene {
         WindowGroup {
             SubcategoryGridView()

@@ -9,28 +9,29 @@ import SwiftUI
 
 struct DefaultData {
     
-    let categoryNames: [String] =       ["Income",
-                                         "Surprise Expense",
-                                         "Monthly Expense",
-                                         "Recurring Expense",
-                                         "Subscription"]
+    let categoryTree: [String: [String]] =  ["Income":
+                                                ["Work", "Savings", "Side Income"],
+                                             
+                                             "Surprise Expense":
+                                                ["Supplies", "Gifts", "Travel","Medical", "Car Maintenance"],
+                                             
+                                             "Monthly Expense":
+                                                ["Housing", "Hydro", "Tenant Insurance","Laundry", "Internet",
+                                                 "Cell Phone","Car Insurance"],
+                                             
+                                             "Recurring Expense":
+                                                ["Take-out", "Substances", "Haircut", "Gas", "Parking",
+                                                 "Clothes", "Entertainment", "Gym", "Bank Fees", "Line of Credit"],
+                                             
+                                             "Subscription":
+                                                ["iCloud", "Spotify", "Amazon"]]
     
-    let categoryColors: [Color] =       [.green,
-                                         .red,
-                                         .blue,
-                                         .yellow,
-                                         .pink]
-    
-    let subcategoryNames: [[String]] =  [["Work", "Savings", "Side Income"],
-                                        
-                                         ["Supplies", "Gifts", "Travel", "Medical", "Car Maintenance"],
-                                         
-                                         ["Housing", "Hydro", "Tenant Insurance", "Laundry", "Internet",
-                                          "Cell Phone","Car Insurance"],
-                                        
-                                         ["iCloud", "Spotify", "Amazon"],
-                                        
-                                         ["Take-out", "Substances", "Haircut", "Gas", "Parking", "Clothes",
-                                          "Entertainment", "Gym", "Bank Fees", "Line of Credit"]]
-                                  
+    let categoryColors: [Color] =           [.green,
+                                             .red,
+                                             .blue,
+                                             .yellow,
+                                             .pink]
+        
+
 }
+
