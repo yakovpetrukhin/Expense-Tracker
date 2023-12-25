@@ -31,7 +31,22 @@ struct DefaultData {
                                              .blue,
                                              .yellow,
                                              .pink]
-        
-
+    
+    
+    let transactions = [TransactionItem(label: "Walmart",       amount: 99.99),
+                        TransactionItem(label: "Winners",       amount: 99.99),
+                        TransactionItem(label: "Costco Gas",    amount: 99.99),
+                        TransactionItem(label: "Chipotle",      amount: 99.99),
+                        TransactionItem(label: "Canadian Tire", amount: 99.99),
+                        TransactionItem(label: "Walmart",       amount: 99.99),
+                        TransactionItem(label: "Winners",       amount: 99.99),
+                        TransactionItem(label: "Costco Gas",    amount: 99.99),
+                        TransactionItem(label: "Chipotle",      amount: 99.99),
+                        TransactionItem(label: "Canadian Tire", amount: 99.99)]
 }
 
+let defaultUser: UserData = {
+    var user = UserData(categoryDict: DefaultData().categoryTree, colors: DefaultData().categoryColors)
+    user.categories[0].subcategories[0].transactions = DefaultData().transactions
+    return user
+}()

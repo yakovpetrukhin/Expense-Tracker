@@ -13,6 +13,9 @@ class Subcategory: Identifiable {
     
     var label: String
     var transactions: [TransactionItem] = []
+    // This doesn't look clean, but it first creates an array from the doubles property in all transactions
+    // Then reduces them to a sum
+    var amount: Double { transactions.map(\.amount).reduce(0,+) }
     
     var color: Color
     

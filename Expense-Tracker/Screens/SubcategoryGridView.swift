@@ -9,15 +9,17 @@ import SwiftUI
 
 struct SubcategoryGridView: View {
     
+    @State var categoryList: [Category]
+    
     let columns  = Array(repeating: GridItem(.flexible(), spacing: 20, alignment: .center), count: 2)
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(MockData().categories) { category in
+                    ForEach(categoryList) { category in
                         ForEach(category.subcategories) { subcategory in
-                            SubcategoryGridCell(color: category.color, subcategoryName: subcategory.name, amount: 0.0)
+                            SubcategoryGridCell(subcategory: subcategory)
                         }
                     }
                 }
@@ -28,5 +30,5 @@ struct SubcategoryGridView: View {
 }
 
 #Preview {
-    SubcategoryGridView()
+    SubcategoryGridView(categoryList: defaultUser.categories)
 }

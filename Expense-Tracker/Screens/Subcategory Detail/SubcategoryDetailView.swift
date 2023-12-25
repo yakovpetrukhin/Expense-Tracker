@@ -19,11 +19,11 @@ struct SubcategoryDetailView: View {
         NewTransactionSubmission(transactionLabel: $transactionLabel, amount: $amount)
             .padding(.vertical, 90)
         
-        SubcategoryTransactionList()
+        SubcategoryTransactionList(transactions: subcategory.transactions)
         
     }
 }
 
 #Preview {
-    SubcategoryDetailView(subcategory: MockData().categories[0].subcategories[0])
+    SubcategoryDetailView(subcategory: defaultUser.categories[0].subcategories[0])
 }

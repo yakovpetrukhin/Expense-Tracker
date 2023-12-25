@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SubcategoryTransactionList: View {
     
-    @State var transactions: [TransactionItem] = MockData().transactions
+    @State var transactions: [TransactionItem]
     
     var body: some View {
         Text("Transactions")
@@ -32,5 +32,6 @@ struct SubcategoryTransactionList: View {
 }
 
 #Preview {
-    SubcategoryTransactionList()
+    SubcategoryTransactionList(
+        transactions: defaultUser.categories[0].subcategories[0].transactions)
 }

@@ -14,7 +14,7 @@ struct Expense_TrackerApp: App {
         
     var body: some Scene {
         WindowGroup {
-            SubcategoryGridView()
+            SubcategoryGridCell(subcategory: userData.categories[0].subcategories[0])
         }
     }
 }

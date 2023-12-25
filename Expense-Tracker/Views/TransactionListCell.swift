@@ -27,7 +27,7 @@ struct TransactionListCell: View {
         .clipShape(RoundedRectangle(cornerRadius: 25))
     }
 }
-
-#Preview {
-    TransactionListCell(transaction: MockData().transactions[0])
-}
+//
+//#Preview {
+//    TransactionListCell(transaction: MockData().transactions[0])
+//}

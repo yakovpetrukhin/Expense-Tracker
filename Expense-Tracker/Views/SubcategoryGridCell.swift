@@ -9,18 +9,16 @@ import SwiftUI
 
 struct SubcategoryGridCell: View {
     
-    var color: Color
-    var subcategoryName: String
-    var amount: Double
+    let subcategory: Subcategory
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .fill(color)
+                .fill(subcategory.color)
                 
             
             VStack {
-                Text(subcategoryName)
+                Text(subcategory.label)
                     .font(.title2)
                     .fontWeight(.regular)
                     .multilineTextAlignment(.center)
@@ -29,7 +27,7 @@ struct SubcategoryGridCell: View {
                 
                 Spacer()
                 
-                Text("$\(amount, specifier: "%.2f")")
+                Text("$\(subcategory.amount, specifier: "%.2f")")
                     .font(.headline)
                     .padding(.bottom, 15)
             }
@@ -40,7 +38,5 @@ struct SubcategoryGridCell: View {
 }
 
 #Preview {
-    SubcategoryGridCell(color: .brown,
-                        subcategoryName: "Take-Out, lots of food",
-                        amount: 99.12).frame(width: 150, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+    SubcategoryGridCell(subcategory: defaultUser.categories[1].subcategories[0])
 }
