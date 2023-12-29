@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import Observation
 
-class UserData {
+@Observable class UserData {
     
     // User data is initialized with categories that are provided in a Category: [Subcategory] dictionary.
     // When the app opens for the first time a UserData instance is created and initialized with the DefaultData values
@@ -15,10 +16,10 @@ class UserData {
     var categories: [Category] = []
     
     
-    // This initializer takes a dictionary of categories (key) and subcategories (value), and a color that is applied
+    // This initializer takes a key value pair of categories (key) and subcategories (value), and a color that is applied
     // to the dictionary. It is designed to be used to load the DefaultData when no user exists
     
-    init(categoryDict: [String:[String]], colors: [Color]) {
+    init(categoryDict: KeyValuePairs<String, [String]>, colors: [Color]) {
         
         // I think this initializer can be a bit more elegant review later
         

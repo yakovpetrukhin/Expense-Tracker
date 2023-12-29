@@ -10,11 +10,11 @@ import SwiftUI
 @main
 struct Expense_TrackerApp: App {
     
-    var userData = UserData(categoryDict: DefaultData().categoryTree, colors: DefaultData().categoryColors)
+    @State private var user = UserData(categoryDict: DefaultData().categoryTree, colors: DefaultData().categoryColors)
         
     var body: some Scene {
         WindowGroup {
-            SubcategoryGridCell(subcategory: userData.categories[0].subcategories[0])
+            ExpenseTabView(user: user)
         }
     }
 }

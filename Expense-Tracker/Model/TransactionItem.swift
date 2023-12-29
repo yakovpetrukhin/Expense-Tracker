@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-class TransactionItem: Identifiable, Codable {
+@Observable final class TransactionItem: Identifiable, Codable, Hashable {
     
-    let id: UUID
+    @ObservationIgnored let id: UUID
     var label: String
     var amount: Double
     var date: Date
@@ -23,6 +23,17 @@ class TransactionItem: Identifiable, Codable {
         self.amount = amount
         self.date = date
         self.transactionType = transactionType
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: TransactionItem, rhs: TransactionItem) -> Bool {
+        if rhs.id == lhs.id {
+            return true
+        }
+        return false
     }
 }
 

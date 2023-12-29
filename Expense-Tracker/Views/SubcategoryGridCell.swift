@@ -38,5 +38,6 @@ struct SubcategoryGridCell: View {
 }
 
 #Preview {
-    SubcategoryGridCell(subcategory: defaultUser.categories[1].subcategories[0])
+    SubcategoryGridCell(subcategory: defaultUser.categories[0].subcategories[0])
+        .frame(width: 200, height: 100)
 }

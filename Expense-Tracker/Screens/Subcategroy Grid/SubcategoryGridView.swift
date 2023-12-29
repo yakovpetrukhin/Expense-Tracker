@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SubcategoryGridView: View {
     
-    @State var categoryList: [Category]
+    @State var selectedSubcategory: Subcategory?
+    var categoryList: [Category]
     
     let columns  = Array(repeating: GridItem(.flexible(), spacing: 20, alignment: .center), count: 2)
     
@@ -19,13 +20,18 @@ struct SubcategoryGridView: View {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(categoryList) { category in
                         ForEach(category.subcategories) { subcategory in
-                            SubcategoryGridCell(subcategory: subcategory)
+                            NavigationLink(destination: SubcategoryDetailView(subcategory: subcategory)) {
+                                SubcategoryGridCell(subcategory: subcategory)
+                            }
+                            .foregroundStyle(.white)
                         }
                     }
                 }
                 .padding(20)
             }
+            .navigationTitle("Categories")
         }
+
     }
 }
 

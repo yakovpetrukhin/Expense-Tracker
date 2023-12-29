@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DefaultData {
     
-    let categoryTree: [String: [String]] =  ["Income":
+    let categoryTree: KeyValuePairs =  ["Income":
                                                 ["Work", "Savings", "Side Income"],
                                              
                                              "Surprise Expense":

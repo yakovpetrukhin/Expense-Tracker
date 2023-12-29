@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-class Subcategory: Identifiable {
+@Observable final class Subcategory: Identifiable, Hashable {
     
-    let id: UUID
+    @ObservationIgnored let id: UUID
     
     var label: String
     var transactions: [TransactionItem] = []
@@ -24,5 +24,16 @@ class Subcategory: Identifiable {
         self.label = label
         self.transactions = transactions
         self.color = color
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: Subcategory, rhs: Subcategory) -> Bool {
+        if rhs.id == lhs.id {
+            return true
+        }
+        return false
     }
 }

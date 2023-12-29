@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class Category: Identifiable {
+@Observable final class Category: Identifiable {
     
     let id: UUID
     
