@@ -14,7 +14,8 @@ struct Expense_TrackerApp: App {
         
     var body: some Scene {
         WindowGroup {
-            ExpenseTabView(user: user)
+            ExpenseTabView()
+                .environment(user)
         }
     }
 }

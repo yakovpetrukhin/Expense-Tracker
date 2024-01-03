@@ -9,29 +9,30 @@ import SwiftUI
 
 struct SubcategoryTransactionList: View {
     
-    @State var transactions: [TransactionItem]
+    @State var subcategory: Subcategory
     
     var body: some View {
-        Text("Transactions")
-            .font(.title)
-            .fontWeight(.semibold)
-        List {
-            ForEach(transactions) { transactionItem in
-                TransactionListCell(transaction: transactionItem)
-            }
-            .onDelete(perform: { indexSet in
-                for index in indexSet {
-                    transactions.remove(at: index)
+        VStack {
+            Text("Transactions")
+                .font(.title)
+                .fontWeight(.semibold)
+            List {
+                ForEach(subcategory.transactions) { transactionItem in
+                    TransactionListCell(transaction: transactionItem)
                 }
-            })
+                .onDelete(perform: { indexSet in
+                    for index in indexSet {
+                        subcategory.transactions.remove(at: index)
+                    }
+                })
+            }
+            .listStyle(.plain)
+            .listRowSeparator(.hidden)
         }
-        .listStyle(.plain)
-        .listRowSeparator(.hidden)
-
     }
 }
 
 #Preview {
     SubcategoryTransactionList(
-        transactions: defaultUser.categories[0].subcategories[0].transactions)
+        subcategory: defaultUser.categories[0].subcategories[0])
 }

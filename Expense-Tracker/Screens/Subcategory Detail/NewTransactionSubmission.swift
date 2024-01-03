@@ -9,8 +9,14 @@ import SwiftUI
 
 struct NewTransactionSubmission: View {
     
-    @Binding var transactionLabel: String
-    @Binding var amount: Double?
+    @Bindable var subcategory: Subcategory
+    
+    @State var label: String = ""
+    @State var amount: Double?
+    
+    enum FocusField {
+        case amount, label
+    }
     
     var body: some View {
         
@@ -20,7 +26,7 @@ struct NewTransactionSubmission: View {
                       value: $amount,
                       format: .currency(code: "CAD")
             )
-            .keyboardType(.numberPad)
+            .keyboardType(.decimalPad)
             .multilineTextAlignment(.center)
             .font(.largeTitle)
             .fontWidth(.expanded)
@@ -28,12 +34,14 @@ struct NewTransactionSubmission: View {
             .padding(.bottom, 20)
 
             
-            TextField("New Transaction", text: $transactionLabel)
+            TextField("New Transaction", text: $label)
                 .font(.title)
                 .multilineTextAlignment(.center)
             
             Button {
-                print("Submitted new transaction")
+                if amount != nil && label != "" {
+                    subcategory.transactions.insert(TransactionItem(label: label, amount: amount!), at: 0)
+                }
             } label: {
                 Label("Submit", systemImage: "checkmark")
                     .font(.title3)
@@ -48,5 +56,5 @@ struct NewTransactionSubmission: View {
 }
 
 #Preview {
-    NewTransactionSubmission(transactionLabel: .constant("Food"), amount: .constant(nil))
+    NewTransactionSubmission(subcategory: defaultUser.categories[0].subcategories[0])
 }

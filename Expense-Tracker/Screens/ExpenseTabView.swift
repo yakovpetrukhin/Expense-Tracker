@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExpenseTabView: View {
     
-    var user: UserData
+    @Environment(UserData.self) private var user: UserData
     
     var body: some View {
         TabView {
@@ -35,5 +35,5 @@ struct ExpenseTabView: View {
 }
 
 #Preview {
-    ExpenseTabView(user: defaultUser)
+    ExpenseTabView()
 }

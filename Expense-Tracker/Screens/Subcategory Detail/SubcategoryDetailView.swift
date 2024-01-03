@@ -9,17 +9,14 @@ import SwiftUI
 
 struct SubcategoryDetailView: View {
     
-    let subcategory: Subcategory
-    
-    @State var transactionLabel: String = ""
-    @State var amount: Double? = nil
-      
+    @State var subcategory: Subcategory
+
     var body: some View {
         
-        NewTransactionSubmission(transactionLabel: $transactionLabel, amount: $amount)
-            .padding(.vertical, 90)
+        NewTransactionSubmission(subcategory: subcategory)
+            .padding(.vertical, 40)
         
-        SubcategoryTransactionList(transactions: subcategory.transactions)
+        SubcategoryTransactionList(subcategory: subcategory)
         
     }
 }
