@@ -14,9 +14,11 @@ struct NewTransactionSubmission: View {
     @State var label: String = ""
     @State var amount: Double?
     
-    enum FocusField {
+    enum FocusedField {
         case amount, label
     }
+    
+    @FocusState private var focusedField: FocusedField?
     
     var body: some View {
         
@@ -25,18 +27,36 @@ struct NewTransactionSubmission: View {
             TextField("$0.00",
                       value: $amount,
                       format: .currency(code: "CAD")
+                      
             )
-            .keyboardType(.decimalPad)
-            .multilineTextAlignment(.center)
-            .font(.largeTitle)
-            .fontWidth(.expanded)
-            .fontWeight(.black)
-            .padding(.bottom, 20)
+                .onSubmit {
+                    print(amount!)
+                }
+                .keyboardType(.decimalPad)
+                .multilineTextAlignment(.center)
+                .font(.largeTitle)
+                .fontWidth(.expanded)
+                .fontWeight(.black)
+                .padding(.bottom, 20)
+                .focused($focusedField, equals: .amount)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+
+                        Button {
+                            focusedField = .label
+                        } label : {
+                            Text("Next")
+                        }
+                    }
+                }
 
             
             TextField("New Transaction", text: $label)
                 .font(.title)
                 .multilineTextAlignment(.center)
+                .focused($focusedField, equals: .label)
+
             
             Button {
                 if amount != nil && label != "" {
